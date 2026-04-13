@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Navbar from '../shared/Navbar'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
@@ -9,7 +9,7 @@ import axios from 'axios'
 import { USER_API_END_POINT } from '@/utils/constant'
 import { toast } from 'sonner'
 import { useDispatch, useSelector } from 'react-redux'
-import { setLoading, setUser } from '@/redux/authSlice'
+import { setLoading } from '@/redux/authSlice'
 import { Loader2 } from 'lucide-react'
 
 const Login = () => {
@@ -113,7 +113,7 @@ const Login = () => {
                         <Button type="submit" className="w-full my-4">Login</Button>
                     )}
                     <span className='text-sm'>
-                        Don't have an account? <Link to="/signup" className='text-blue-600'>Signup</Link>
+                        Don&apos;t have an account? <Link to="/signup" className='text-blue-600'>Signup</Link>
                     </span>
                 </form>
             </div>

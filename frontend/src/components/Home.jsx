@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Navbar from './shared/Navbar'
 import HeroSection from './HeroSection'
 import CategoryCarousel from './CategoryCarousel'
@@ -16,7 +16,7 @@ const Home = () => {
     if (user?.role === 'recruiter') {
       navigate("/admin/companies");
     }
-  }, []);
+  }, [user, navigate]);
   return (
     <div>
       <Navbar />

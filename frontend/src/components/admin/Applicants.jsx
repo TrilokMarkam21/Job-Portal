@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Navbar from '../shared/Navbar'
 import ApplicantsTable from './ApplicantsTable'
 import axios from 'axios';
@@ -22,7 +22,7 @@ const Applicants = () => {
             }
         }
         fetchAllApplicants();
-    }, []);
+    }, [dispatch, params.id]);
     return (
         <div>
             <Navbar />
