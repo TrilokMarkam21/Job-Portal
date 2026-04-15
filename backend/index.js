@@ -16,6 +16,7 @@ const app = express();
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 const whitelist = [process.env.FRONTEND_URL];
 console.log("Whitelist:", whitelist);
@@ -34,6 +35,11 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
+
+// health check
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Job Portal API is running", success: true });
+});
 
 // api's
 app.use("/api/v1/user", userRoute);
