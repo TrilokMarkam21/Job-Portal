@@ -41,6 +41,10 @@ app.get("/", (req, res) => {
   res.status(200).json({ message: "Job Portal API is running", success: true });
 });
 
+app.get("/health", (req, res) => {
+  res.status(200).json({ message: "Server is healthy", success: true });
+});
+
 // api's
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
