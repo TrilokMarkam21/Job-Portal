@@ -33,7 +33,7 @@ console.log("Allowed CORS origins:", [...whitelist]);
 const corsOptions = {
   origin: function (origin, callback) {
     const normalizedOrigin = origin?.replace(/\/$/, "");
-    if (!origin || whitelist.size === 0 || whitelist.has(normalizedOrigin)) {
+    if (!origin || whitelist.has(normalizedOrigin)) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
