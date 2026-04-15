@@ -17,11 +17,18 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const frontendOrigins = process.env.FRONTEND_URLS
+  ? process.env.FRONTEND_URLS.split(",")
+  : [];
+
+const localDevOrigins = process.env.NODE_ENV === "production"
+  ? []
+  : ["http://localhost:5173", "http://127.0.0.1:5173"];
+
 const configuredOrigins = [
   process.env.FRONTEND_URL,
-  ...(process.env.FRONTEND_URLS || "").split(","),
-  "http://localhost:5173",
-  "http://127.0.0.1:5173",
+  ...frontendOrigins,
+  ...localDevOrigins,
 ]
   .map((origin) => origin?.trim())
   .filter(Boolean)
